@@ -1,5 +1,9 @@
 
-#https://leetcode.com/problems/contains-duplicate/
+# https://leetcode.com/problems/contains-duplicate/
+
+# sets in python - https://docs.python.org/2/library/sets.html
+# unordered, unique elements
+# under the hood is a hashmap which leads to fast lookup 
 class Solution(object):
     def containsDuplicate(self, nums):
         """

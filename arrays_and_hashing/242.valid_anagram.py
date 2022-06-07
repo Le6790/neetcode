@@ -25,8 +25,15 @@ class Solution(object):
 
         return True
 
-
+    def isAnagram2(self, s, t):
+        s_sorted = sorted(s)
+        t_sorted = sorted(t)
+        
+        if s_sorted == t_sorted:
+            return True
+        return False
+        
 sol = Solution()
-print(sol.isAnagram("anagram","nagaram"))
+print(sol.isAnagram2("anagram","nagaram")) # True
 # print(sol.isAnagram("rat","cat"))
-print(sol.isAnagram("a","ab"))
+print(sol.isAnagram2("a","ab")) # False

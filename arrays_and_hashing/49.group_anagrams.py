@@ -2,25 +2,32 @@ from collections import defaultdict
 
 
 class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        words_map = defaultdict(list);
 
-        for str in strs:
+    def groupAnagrams(self,strs):
+
+        res = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26 #list of a-z
+
+            for c in s:
+                count[ord(c) - ord("a")] += 1
             
-            str_count = 0
-            for char in str:
-                str_count += ord(char)
-            
-            words_map[str_count].append(str)
+            res[tuple(count)].append(s)
         
-        print(words_map)
+        return res.values()
 
-        return list(words_map.values())
+    def groupAnagramsUsingSort(self,strs):
+
+        res = defaultdict(list)
+
+        for s in strs:
+            sorted_s = sorted(s)
+            res[tuple(sorted_s)].append(s)
+        return res.values()
 
 sol = Solution()
 
-print(sol.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+print(sol.groupAnagrams(["ac","c"]))
+print("----")
+print(sol.groupAnagramsUsingSort(["ac","c"]))
