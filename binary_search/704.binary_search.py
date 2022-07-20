@@ -8,7 +8,7 @@ class Solution(object):
         l,r = 0, len(nums)-1 # left and rightmost indexes of the array
 
         while l<=r:
-            mid = (r+l)/2
+            mid = (r+l)//2
 
             if target < nums[mid]:
                 r = mid-1
