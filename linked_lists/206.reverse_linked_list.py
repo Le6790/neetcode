@@ -14,8 +14,8 @@ class Solution:
         prev = None
 
         while curr:
-            next = curr.next
-            curr.next = prev
+            next = curr.next #temp variable
+            curr.next = prev 
             prev = curr
             curr = next 
         return prev 
@@ -33,4 +33,33 @@ class Solution:
         head.next = None
 
         return newHead
-        
+    
+
+    def reverseListStack(self, head):
+        stack = []
+
+        while head != None:
+            stack.append(head)
+            head = head.next 
+
+        dummy = ListNode()
+        newHead = dummy
+
+        while stack:
+            current = stack.pop()
+            newHead.next = ListNode(current.val)
+            newHead = newHead.next
+
+        return dummy.next
+
+
+solution = Solution()
+
+
+node1 = ListNode(1)
+node2 = ListNode(2)
+
+node1.next = node2 
+
+
+print (solution.reverseListStack(node1))
